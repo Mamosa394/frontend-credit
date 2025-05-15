@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import '../styles/CreditDashboard.css';
+import '../styles/creditdashboard.css';
 import Header2 from "../components2/Header2";
 import Footer2 from "../components2/Footer2";
 
