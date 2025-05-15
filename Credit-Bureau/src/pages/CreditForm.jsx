@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container, Form, Button, Row, Col, Spinner } from "react-bootstrap";
-import "../styles/creditForm.css";
+import "../styles/creditform.css";
 import Header2 from "../components2/Header2";
 import FooterNew from "../components2/FooterNew";
 
