@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/LenderHome.css";
+import "../styles/lenderhome.css";
 import HeaderLender from "../components2/HeaderLender";
 
 const LenderHome = () => {
