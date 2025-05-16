@@ -125,7 +125,137 @@ label[for="file-upload"] {
   height: 220px;
   margin-top: 1rem;
 }
+/* Calculator Popup Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
 
+.calculator-modal {
+  background-color: white;
+  padding: 1.2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 350px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.calculator-modal h2 {
+  margin-top: 0;
+  color: #2c3e50;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.calculator-modal p {
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  color: #666;
+}
+
+.form-group {
+  margin-bottom: 0.7rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.calculate-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 0.5rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.calculate-button:hover {
+  background-color: #3e8e41;
+}
+
+.calculate-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.cancel-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 0.5rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.cancel-button:hover {
+  background-color: #d32f2f;
+}
+
+.spinner {
+  border: 3px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top: 3px solid #4caf50;
+  width: 25px;
+  height: 25px;
+  animation: spin 1s linear infinite;
+  margin: 1rem auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Existing dashboard styles... */
+.score-value {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 1rem 0;
+  text-align: center;
+  color: #333;
+}
+
+.score-rating {
+  font-size: 1.2rem;
+  color: #4caf50;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.calculating-score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .speedometer-gauge {
   width: 100%;
   max-width: 360px;
