@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Container, Form, Button, Row, Col, Spinner } from "react-bootstrap";
-import Header2 from "../components/Header2";
-import FooterNew from "../components/FooterNew";
+
 import "../styles/creditform.css";
+import PartnerSidebar from "@/components2/PartnerSidebar";
 
 const BillForm = () => {
   const [bills, setBills] = useState([
@@ -74,7 +74,7 @@ const BillForm = () => {
 
   return (
     <Container fluid className="form-container">
-      <Header2 />
+      <PartnerSidebar />
       <div className="form-content">
         <h2 className="form-title">Bill Payments</h2>
 
