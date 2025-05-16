@@ -16,61 +16,64 @@ body {
 }
 
 .contact-page {
-  padding: 80px 20px;
+  padding: clamp(2rem, 5vw, 5rem) 1rem;
   max-width: 1400px;
-  margin: auto;
-  margin-top: 0px;
-  margin-left: 30px;
-  margin-right: 30px;
+  margin: 0 auto;
+  width: calc(100% - 2rem);
 }
 
 /* Contact Header */
 .contact-header {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: clamp(2rem, 5vw, 3.75rem);
 }
 
 .contact-header h1 {
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 3rem);
   color: #0e594a;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
+  line-height: 1.2;
 }
 
 .contact-header p {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
   color: #555;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Contact Content Section */
 .contact-content {
   display: flex;
-  justify-content: space-between;
-  gap: 50px;
-  margin-bottom: 80px;
+  flex-direction: column;
+  gap: clamp(1.5rem, 4vw, 3.125rem);
+  margin-bottom: clamp(2rem, 5vw, 5rem);
 }
 
 /* Contact Details */
 .contact-details {
-  flex: 1;
+  width: 100%;
   background-color: #fff;
-  padding: 30px;
-  border-radius: 10px;
+  padding: clamp(1.25rem, 3vw, 1.875rem);
+  border-radius: 0.625rem;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
 .contact-details h2 {
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 700;
   color: #0e594a;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 }
 
 .contact-details p {
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 2vw, 1rem);
   color: #555;
-  margin-bottom: 15px;
+  margin-bottom: 0.9375rem;
+  line-height: 1.5;
 }
 
 .contact-details ul {
@@ -79,17 +82,20 @@ body {
 }
 
 .contact-details li {
-  font-size: 1.1rem;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
   color: #444;
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 /* Contact Form Styling */
 .contact-form {
-  flex: 1.5;
+  width: 100%;
   background-color: #fff;
-  padding: 30px;
-  border-radius: 10px;
+  padding: clamp(1.25rem, 3vw, 1.875rem);
+  border-radius: 0.625rem;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
@@ -99,25 +105,26 @@ body {
 }
 
 .contact-form .form-group {
-  margin-bottom: 20px;
+  margin-bottom: clamp(1rem, 2vw, 1.25rem);
 }
 
 .contact-form label {
-  font-size: 1.1rem;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
   font-weight: 600;
   color: #0e594a;
-  margin-bottom: 5px;
+  margin-bottom: 0.3125rem;
+  display: block;
 }
 
 .contact-form input,
 .contact-form textarea {
   width: 100%;
-  padding: 12px;
+  padding: clamp(0.75rem, 2vw, 0.9375rem);
   border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 1rem;
+  border-radius: 0.3125rem;
+  font-size: clamp(0.9rem, 2vw, 1rem);
   color: #333;
-  margin-bottom: 10px;
+  margin-bottom: 0.3125rem;
 }
 
 .contact-form input:focus,
@@ -128,19 +135,21 @@ body {
 
 .contact-form textarea {
   resize: vertical;
-  height: 150px;
+  min-height: 9.375rem;
+  max-height: 18.75rem;
 }
 
 .contact-form .submit-btn {
-  padding: 12px 20px;
+  padding: clamp(0.75rem, 2vw, 0.9375rem) clamp(1rem, 3vw, 1.25rem);
   background-color: #0e594a;
   color: #fff;
-  font-size: 1.1rem;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
   font-weight: bold;
   border: none;
-  border-radius: 5px;
+  border-radius: 0.3125rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-top: 0.5rem;
 }
 
 .contact-form .submit-btn:hover {
@@ -150,23 +159,47 @@ body {
 /* Success and Error Messages */
 .success-message {
   background-color: #e0f7e4;
-  padding: 20px;
-  border-radius: 10px;
+  padding: clamp(1rem, 3vw, 1.25rem);
+  border-radius: 0.625rem;
   text-align: center;
+  margin-top: 1.5rem;
 }
 
 .success-message h3 {
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
   color: #0e594a;
+  margin-bottom: 0.5rem;
 }
 
 .success-message p {
-  font-size: 1.2rem;
+  font-size: clamp(0.95rem, 2vw, 1.2rem);
   color: #555;
 }
 
 .error-message {
   color: #ff4d4d;
-  font-size: 1rem;
-  margin-top: 10px;
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  margin-top: 0.5rem;
+}
+
+/* Responsive Adjustments */
+@media (min-width: 768px) {
+  .contact-content {
+    flex-direction: row;
+  }
+  
+  .contact-details {
+    flex: 1;
+  }
+  
+  .contact-form {
+    flex: 1.5;
+  }
+}
+
+@media (min-width: 1024px) {
+  .contact-page {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }
