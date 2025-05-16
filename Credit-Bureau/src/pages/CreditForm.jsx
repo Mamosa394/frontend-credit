@@ -1,121 +1,56 @@
 import React, { useState } from "react";
-import { Container, Form, Button, Row, Col, Spinner } from "react-bootstrap";
+import { Container, Form, Button, Row, Col, Spinner, Alert } from "react-bootstrap";
+import Header2 from "../components/Header2";
+import FooterNew from "../components/FooterNew";
 import "../styles/creditform.css";
-import Header2 from "../components2/Header2";
-import FooterNew from "../components2/FooterNew";
 
-const CreditForm = ({ onSubmit }) => {
-  const [loans, setLoans] = useState([
-    {
-      loanId: "",
-      lender: "",
-      amount: "",
-      type: "",
-      interestRate: "",
-      status: "",
-      startDate: "",
-      dueDate: "",
-    },
-  ]);
+const ALLOWED_LENDERS = ["FNB", "Postbank", "Nedbank", "Alliance Lesotho"];
 
-  const [bills, setBills] = useState([
-    {
-      billType: "",
-      amount: "",
-      dueDate: "",
-      paymentDate: "",
-      status: "",
-    },
-  ]);
+const CreditForm = () => {
+  const [loan, setLoan] = useState({
+    lender: "",
+    amount: "",
+    type: "",
+    purpose: "",
+    duration: "",
+    employmentStatus: "",
+    income: "",
+  });
 
   const [isLoading, setIsLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
 
-  const handleLoanChange = (index, field, value) => {
-    setLoans((prevLoans) =>
-      prevLoans.map((loan, i) =>
-        i === index ? { ...loan, [field]: value } : loan
-      )
-    );
-  };
-
-  const handleBillChange = (index, field, value) => {
-    setBills((prevBills) =>
-      prevBills.map((bill, i) =>
-        i === index ? { ...bill, [field]: value } : bill
-      )
-    );
-  };
-
-  const addLoan = () => {
-    setLoans((prevLoans) => [
-      ...prevLoans,
-      {
-        loanId: "",
-        lender: "",
-        amount: "",
-        type: "",
-        interestRate: "",
-        status: "",
-        startDate: "",
-        dueDate: "",
-      },
-    ]);
-  };
-
-  const addBill = () => {
-    setBills((prevBills) => [
-      ...prevBills,
-      {
-        billType: "",
-        amount: "",
-        dueDate: "",
-        paymentDate: "",
-        status: "",
-      },
-    ]);
+  const handleChange = (field, value) => {
+    setLoan((prev) => ({ ...prev, [field]: value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    const userData = { loans, bills };
+    setSuccess(false);
 
     try {
-      const response = await fetch("https://backend-credit-7sa9.onrender.com/api/loan-records", {
+      const response = await fetch("https://backend-credit-7sa9.onrender.com/api/loan-applications", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(userData),
+        body: JSON.stringify(loan),
       });
 
       if (response.ok) {
-        const result = await response.json();
-        alert("Data submitted successfully!");
-        setLoans([
-          {
-            loanId: "",
-            lender: "",
-            amount: "",
-            type: "",
-            interestRate: "",
-            status: "",
-            startDate: "",
-            dueDate: "",
-          },
-        ]);
-        setBills([
-          {
-            billType: "",
-            amount: "",
-            dueDate: "",
-            paymentDate: "",
-            status: "",
-          },
-        ]);
+        setSuccess(true);
+        setLoan({
+          lender: "",
+          amount: "",
+          type: "",
+          purpose: "",
+          duration: "",
+          employmentStatus: "",
+          income: "",
+        });
       } else {
-        const errorData = await response.json();
-        alert("Failed to submit data.");
+        alert("Failed to submit loan application.");
       }
     } catch (error) {
       alert("An unexpected error occurred.");
@@ -125,59 +60,128 @@ const CreditForm = ({ onSubmit }) => {
   };
 
   return (
-    <>
-      <Container fluid className="form-container">
-        <Header2 />
-        <div className="form-content">
-          <h2 className="form-title">Loan and Bill Payment Form</h2>
+    <Container fluid className="form-container">
+      <Header2 />
+      <div className="form-content">
+        <h2 className="form-title">Loan Application</h2>
 
-          <Form onSubmit={handleSubmit}>
-            <Row className="form-sections-wrapper">
-              {/* Removed LoanForm and BillForm */}
-            </Row>
+        {success && (
+          <Alert variant="success" onClose={() => setSuccess(false)} dismissible>
+            Loan application submitted successfully!
+          </Alert>
+        )}
 
-            <div className="mt-4">
-              <Button type="submit" className="btn-accent" disabled={isLoading}>
-                {isLoading ? (
-                  <Spinner animation="border" size="sm" />
-                ) : (
-                  "Submit"
-                )}
-              </Button>
-            </div>
+        <Form onSubmit={handleSubmit}>
+          <Row>
+            <Col md={6}>
+              <Form.Group className="mb-3" controlId="lender">
+                <Form.Label>Lender</Form.Label>
+                <Form.Select
+                  value={loan.lender}
+                  onChange={(e) => handleChange("lender", e.target.value)}
+                  required
+                >
+                  <option value="">Select Lender</option>
+                  {ALLOWED_LENDERS.map((lender) => (
+                    <option key={lender} value={lender}>
+                      {lender}
+                    </option>
+                  ))}
+                </Form.Select>
+              </Form.Group>
 
-            <div className="tips-card mt-5">
-              <h4 className="section-title">Smart Credit Tips</h4>
-              <div className="tip-box">
-                <ul>
-                  <li>
-                    <strong>Pay on time:</strong> Timely payments improve your
-                    credit rating.
-                  </li>
-                  <li>
-                    <strong>Keep balances low:</strong> Don't max out your
-                    credit cards.
-                  </li>
-                  <li>
-                    <strong>Check reports:</strong> Review your credit report
-                    regularly for errors.
-                  </li>
-                  <li>
-                    <strong>Limit applications:</strong> Avoid too many credit
-                    applications in a short time.
-                  </li>
-                  <li>
-                    <strong>Stay informed:</strong> Understand how credit works
-                    and stay updated.
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </Form>
-        </div>
-      </Container>
+              <Form.Group className="mb-3" controlId="amount">
+                <Form.Label>Loan Amount</Form.Label>
+                <Form.Control
+                  type="number"
+                  value={loan.amount}
+                  onChange={(e) => handleChange("amount", e.target.value)}
+                  required
+                />
+              </Form.Group>
+
+              <Form.Group className="mb-3" controlId="type">
+                <Form.Label>Loan Type</Form.Label>
+                <Form.Select
+                  value={loan.type}
+                  onChange={(e) => handleChange("type", e.target.value)}
+                  required
+                >
+                  <option value="">Select Loan Type</option>
+                  <option value="Personal">Personal</option>
+                  <option value="Business">Business</option>
+                  <option value="Education">Education</option>
+                  <option value="Home">Home</option>
+                </Form.Select>
+              </Form.Group>
+            </Col>
+
+            <Col md={6}>
+              <Form.Group className="mb-3" controlId="purpose">
+                <Form.Label>Purpose</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  rows={3}
+                  value={loan.purpose}
+                  onChange={(e) => handleChange("purpose", e.target.value)}
+                  required
+                />
+              </Form.Group>
+
+              <Form.Group className="mb-3" controlId="duration">
+                <Form.Label>Duration (months)</Form.Label>
+                <Form.Control
+                  type="number"
+                  value={loan.duration}
+                  onChange={(e) => handleChange("duration", e.target.value)}
+                  required
+                />
+              </Form.Group>
+            </Col>
+          </Row>
+
+          <h5 className="mt-4">Employment Information</h5>
+          <Row>
+            <Col md={6}>
+              <Form.Group className="mb-3" controlId="employmentStatus">
+                <Form.Label>Employment Status</Form.Label>
+                <Form.Select
+                  value={loan.employmentStatus}
+                  onChange={(e) =>
+                    handleChange("employmentStatus", e.target.value)
+                  }
+                  required
+                >
+                  <option value="">Select Status</option>
+                  <option value="Employed">Employed</option>
+                  <option value="Self-Employed">Self-Employed</option>
+                  <option value="Unemployed">Unemployed</option>
+                  <option value="Student">Student</option>
+                </Form.Select>
+              </Form.Group>
+            </Col>
+            <Col md={6}>
+              <Form.Group className="mb-3" controlId="income">
+                <Form.Label>Monthly Income</Form.Label>
+                <Form.Control
+                  type="number"
+                  value={loan.income}
+                  onChange={(e) => handleChange("income", e.target.value)}
+                  required
+                />
+              </Form.Group>
+            </Col>
+          </Row>
+
+          <div className="mt-4">
+            <Button variant="primary" type="submit" disabled={isLoading}>
+              {isLoading ? <Spinner size="sm" /> : "Submit Application"}
+            </Button>
+          </div>
+        </Form>
+      </div>
       <FooterNew />
-    </>
+    </Container>
   );
 };
 
