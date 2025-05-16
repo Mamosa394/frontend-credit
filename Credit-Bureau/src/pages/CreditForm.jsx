@@ -4,7 +4,6 @@ import "../styles/creditform.css";
 import Header2 from "../components2/Header2";
 import FooterNew from "../components2/FooterNew";
 
-
 const CreditForm = ({ onSubmit }) => {
   const [loans, setLoans] = useState([
     {
@@ -134,23 +133,7 @@ const CreditForm = ({ onSubmit }) => {
 
           <Form onSubmit={handleSubmit}>
             <Row className="form-sections-wrapper">
-              {/* Loan Form */}
-              <Col md={6}>
-                <LoanForm 
-                  loans={loans} 
-                  handleLoanChange={handleLoanChange} 
-                  addLoan={addLoan} 
-                />
-              </Col>
-
-              {/* Bill Form */}
-              <Col md={6}>
-                <BillForm 
-                  bills={bills} 
-                  handleBillChange={handleBillChange} 
-                  addBill={addBill} 
-                />
-              </Col>
+              {/* Removed LoanForm and BillForm */}
             </Row>
 
             <div className="mt-4">
