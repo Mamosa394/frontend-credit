@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Container, Form, Button, Row, Col, Spinner, Alert } from "react-bootstrap";
 import "../styles/creditform.css";
-import PartnerSidebar from "../components2/PartnerSidebar";
+import Header from "../components2/Header2";
+
 
 
 const ALLOWED_LENDERS = ["FNB", "Postbank", "Nedbank", "Alliance Lesotho"];
@@ -61,7 +62,7 @@ const CreditForm = () => {
 
   return (
     <Container fluid className="form-container">
-      <PartnerSidebar />
+      <Header />
       <div className="form-content">
         <h2 className="form-title">Loan Application</h2>
 
