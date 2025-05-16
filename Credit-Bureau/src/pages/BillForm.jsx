@@ -133,7 +133,7 @@ const BillForm = () => {
           </div>
         </Form>
       </div>
-      <FooterNew />
+     
     </Container>
   );
 };

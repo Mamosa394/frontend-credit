@@ -182,7 +182,7 @@ const CreditForm = () => {
           </div>
         </Form>
       </div>
-      <FooterNew />
+    
     </Container>
   );
 };
