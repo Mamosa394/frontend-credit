@@ -7,7 +7,52 @@ import Header2 from "../components2/Header2";
 
 const CreditScoreAnalysis = () => {
   const [darkMode, setDarkMode] = useState(false);
-  const score = 750;
+  const [userData, setUserData] = useState({
+    paymentHistory: 0.3, // 0-1 scale (1 = perfect)
+    creditUtilization: 0.2, // ratio (0-1)
+    creditAge: 2, // years
+    creditMix: 1, // number of different types (credit cards, loans, etc.)
+    recentInquiries: 2, // number of recent credit inquiries
+  });
+
+  // Calculate credit score based on factors (300-850 range)
+  const calculateCreditScore = () => {
+    const {
+      paymentHistory,
+      creditUtilization,
+      creditAge,
+      creditMix,
+      recentInquiries,
+    } = userData;
+
+    // Payment History (35% of score) - max 297.5 points
+    const paymentScore = paymentHistory * 297.5;
+
+    // Credit Utilization (30% of score) - max 255 points
+    // Lower utilization is better (under 30% ideal)
+    const utilizationScore = (1 - Math.min(creditUtilization, 1)) * 255;
+
+    // Credit Age (15% of score) - max 127.5 points
+    // More years is better (capped at 10+ years)
+    const ageScore = (Math.min(creditAge, 10) / 10) * 127.5;
+
+    // Credit Mix (10% of score) - max 85 points
+    // Having different types is good (capped at 4+ types)
+    const mixScore = (Math.min(creditMix, 4) / 4) * 85;
+
+    // Recent Inquiries (10% of score) - max 85 points
+    // Fewer inquiries is better (0 is best, more than 5 is worst)
+    const inquiryScore = (1 - Math.min(recentInquiries, 5) / 5) * 85;
+
+    // Sum all components and ensure it's within 300-850 range
+    const rawScore = Math.round(
+      paymentScore + utilizationScore + ageScore + mixScore + inquiryScore
+    );
+    
+    return Math.max(300, Math.min(850, rawScore));
+  };
+
+  const score = calculateCreditScore();
 
   const chartData = [
     { name: "Payment History", value: 35 },
@@ -36,6 +81,14 @@ const CreditScoreAnalysis = () => {
     );
   }, [darkMode]);
 
+  // Function to update user data
+  const updateUserData = (field, value) => {
+    setUserData(prev => ({
+      ...prev,
+      [field]: value
+    }));
+  };
+
   return (
     <div className={`main-layout`}>
       <Header2 />
@@ -49,6 +102,78 @@ const CreditScoreAnalysis = () => {
             >
               {darkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
             </button>
+          </div>
+
+          {/* Add input controls for credit factors */}
+          <div className="credit-factors-input">
+            <h4>🔧 Adjust Your Credit Factors</h4>
+            <div className="input-group">
+              <label>
+                Payment History (0-1):
+                <input
+                  type="range"
+                  min="0"
+                  max="1"
+                  step="0.01"
+                  value={userData.paymentHistory}
+                  onChange={(e) => updateUserData("paymentHistory", parseFloat(e.target.value))}
+                />
+                <span>{userData.paymentHistory.toFixed(2)}</span>
+              </label>
+            </div>
+            <div className="input-group">
+              <label>
+                Credit Utilization (0-1):
+                <input
+                  type="range"
+                  min="0"
+                  max="1"
+                  step="0.01"
+                  value={userData.creditUtilization}
+                  onChange={(e) => updateUserData("creditUtilization", parseFloat(e.target.value))}
+                />
+                <span>{(userData.creditUtilization * 100).toFixed(0)}%</span>
+              </label>
+            </div>
+            <div className="input-group">
+              <label>
+                Credit Age (years):
+                <input
+                  type="range"
+                  min="0"
+                  max="20"
+                  value={userData.creditAge}
+                  onChange={(e) => updateUserData("creditAge", parseInt(e.target.value))}
+                />
+                <span>{userData.creditAge} years</span>
+              </label>
+            </div>
+            <div className="input-group">
+              <label>
+                Credit Mix (types):
+                <input
+                  type="range"
+                  min="0"
+                  max="4"
+                  value={userData.creditMix}
+                  onChange={(e) => updateUserData("creditMix", parseInt(e.target.value))}
+                />
+                <span>{userData.creditMix} types</span>
+              </label>
+            </div>
+            <div className="input-group">
+              <label>
+                Recent Inquiries:
+                <input
+                  type="range"
+                  min="0"
+                  max="10"
+                  value={userData.recentInquiries}
+                  onChange={(e) => updateUserData("recentInquiries", parseInt(e.target.value))}
+                />
+                <span>{userData.recentInquiries} inquiries</span>
+              </label>
+            </div>
           </div>
 
           <div className="score-overview">
@@ -144,10 +269,9 @@ const CreditScoreAnalysis = () => {
           </div>
         </div>
       </div>
-       <FooterNew />
+      <FooterNew />
     </div>
   );
-  
 };
 
 export default CreditScoreAnalysis;
