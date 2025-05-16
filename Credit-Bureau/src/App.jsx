@@ -24,6 +24,7 @@ import SignUpPartner from "./components2/SignUp-Partner";
 import PartnerDashboard from "./pages/PartnerDashboard";
 import LoansOffered from "./pages/LoansOffered";
 import Loans from "./pages/Loans";
+import BillForm from "./pages/BillForm";
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
         <Route path="/partner-dashboard" element={<PartnerDashboard />} />
         <Route path="/loans-offered" element={<LoansOffered />} />
         <Route path="/loans" element={<Loans />} />
+        <Route path="/bills-payment" element={<BillForm />} />
 
         <Route
           path="/credit-score-analysis"
