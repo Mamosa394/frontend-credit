@@ -8,23 +8,26 @@
   justify-content: center;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   width: 100vw;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .signupContainerUnique {
   display: flex;
-  width: 65%; /* Explicit width */
-  max-width: 1200px; /* Max width */
+  width: 100%;
+  max-width: 1200px;
   box-shadow: 0 4px 15px var(--shadow-color);
   border-radius: 10px;
   overflow: hidden;
-  height: 530px;
+  min-height: 530px;
+  flex-direction: row;
 }
 
 .signupLeftPanelUnique {
   background-color: var(--primary-color);
   color: var(--white-color);
-  padding: 2rem 1.5rem; /* Reduced padding */
-  flex: 0 0 260px; /* Reduced width of left panel */
+  padding: 2rem 1.5rem;
+  flex: 0 0 260px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -32,12 +35,12 @@
 }
 
 .signupTitleUnique {
-  font-size: 2rem; /* Reduced font size */
+  font-size: 2rem;
   margin-bottom: 1rem;
 }
 
 .signupSubtitleUnique {
-  font-size: 1rem; /* Reduced font size */
+  font-size: 1rem;
   margin-bottom: 1.5rem;
 }
 
@@ -46,7 +49,7 @@
   color: var(--white-color);
   border: 2px solid var(--dark-text-color);
   padding: 0.5rem 3rem;
-  font-size: 0.9rem; /* Reduced font size */
+  font-size: 0.9rem;
   border-radius: 25px;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -57,7 +60,7 @@
 }
 
 .signupFormWrapperUnique {
-  flex: 1; /* Takes the remaining space */
+  flex: 1;
   background-color: var(--white-color);
   padding: 3rem 2rem;
   display: flex;
@@ -74,7 +77,7 @@
 }
 
 .signupLogoTitleUnique {
-  font-size: 0.8rem; /* Reduced font size */
+  font-size: 0.8rem;
   color: var(--primary-color);
   margin-bottom: 1.5rem;
   margin-top: -20px;
@@ -88,7 +91,7 @@
 }
 
 .signupHeaderUnique {
-  font-size: 1.3rem; /* Reduced font size */
+  font-size: 1.3rem;
   color: var(--primary-color);
   margin-bottom: 1.5rem;
   text-align: center;
@@ -99,7 +102,7 @@
   justify-content: center;
   gap: 1.5rem;
   margin-bottom: 1.5rem;
-  font-size: 1rem; /* Reduced font size */
+  font-size: 1rem;
   color: var(--primary-color);
 }
 
@@ -111,9 +114,9 @@
   background-color: var(--input-bg-color);
   outline: none;
   transition: border-color 0.3s ease;
-  width: 350px;
-  margin: 10px;
-  margin-top: 10px;
+  width: 100%;
+  max-width: 350px;
+  margin: 10px 0;
 }
 
 .signupInputUnique:focus {
@@ -124,6 +127,8 @@
   position: relative;
   display: flex;
   align-items: center;
+  width: 100%;
+  max-width: 350px;
 }
 
 .signupEyeIconUnique {
@@ -131,14 +136,14 @@
   right: 1rem;
   cursor: pointer;
   color: var(--primary-color);
-  left: 324px;
-  top: 21px;
 }
 
 .signupTermsRowUnique {
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
+  width: 100%;
+  max-width: 350px;
 }
 
 .signupCheckboxUnique {
@@ -146,7 +151,7 @@
 }
 
 .signupTermsLabelUnique {
-  font-size: 0.8rem; /* Reduced font size */
+  font-size: 0.8rem;
 }
 
 .signupSubmitBtnUnique {
@@ -156,11 +161,10 @@
   border: none;
   border-radius: 20px;
   cursor: pointer;
-  font-size: 0.9rem; /* Reduced font size */
+  font-size: 0.9rem;
   width: 150px;
   transition: background-color 0.3s ease;
-  margin-left: 130px;
-  margin-top: 20px;
+  margin: 20px auto 0;
 }
 
 .signupSubmitBtnUnique:hover {
@@ -170,10 +174,12 @@
 .signupErrorUnique,
 .signupSuccessUnique {
   text-align: center;
-  font-size: 0.8rem; /* Reduced font size */
+  font-size: 0.8rem;
   margin-top: 1rem;
   padding: 0.5rem;
   border-radius: 5px;
+  width: 100%;
+  max-width: 350px;
 }
 
 .signupErrorUnique {
@@ -185,6 +191,7 @@
   background-color: #e0ffe6;
   color: #1b5e20;
 }
+
 .password-suggestions {
   background-color: #f9f9f9;
   border: 1px solid #ddd;
@@ -234,13 +241,64 @@
   background-color: #e0ffe6;
   color: #1b5e20;
 }
-.signupSuccessUnique {
-  color: green;
-  background-color: #d4edda;
-  padding: 10px;
-  border-radius: 5px;
-  margin-top: 10px;
-  text-align: center;
-  font-weight: bold;
-  transition: opacity 0.5s ease-in-out;
+
+/* Responsive Adjustments */
+@media (max-width: 900px) {
+  .signupContainerUnique {
+    width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .signupContainerUnique {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .signupLeftPanelUnique {
+    flex: 0 0 auto;
+    padding: 1.5rem;
+  }
+
+  .signupFormWrapperUnique {
+    padding: 2rem 1.5rem;
+  }
+
+  .signupLogoUnique {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+  }
+
+  .signupLogoTitleUnique {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .signupPageUnique {
+    padding: 10px;
+  }
+
+  .signupContainerUnique {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .signupTitleUnique {
+    font-size: 1.5rem;
+  }
+
+  .signupHeaderUnique {
+    font-size: 1.1rem;
+  }
+
+  .signupSwitchBtnUnique {
+    padding: 0.5rem 2rem;
+  }
+
+  .signupSubmitBtnUnique {
+    width: 100%;
+    max-width: 200px;
+  }
 }
