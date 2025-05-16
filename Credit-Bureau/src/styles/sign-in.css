@@ -13,7 +13,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0; /* Remove any body margin */
+  margin: 0;
 }
 
 /* Wrapper and Container */
@@ -22,10 +22,12 @@ body {
   justify-content: center;
   align-items: center;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background-image: url("../components/images/backgroun.jpg");
   background-size: cover;
   background-position: center;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 /* Signin Content */
@@ -38,10 +40,10 @@ body {
   box-shadow: 0 10px 15px var(--shadow-color);
   overflow: hidden;
   min-height: 400px;
-  flex-direction: row; /* default left to right */
+  flex-direction: row;
 }
 
-/* Left Panel (Now on the right) */
+/* Left Panel */
 .signin-left {
   background-color: var(--primary-color);
   flex: 1;
@@ -85,6 +87,7 @@ body {
   color: var(--white-color);
 }
 
+/* Form Section */
 .signin-form-section {
   flex: 2;
   padding: 40px;
@@ -94,7 +97,7 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 65vh;
-  order: 1; /* Keep this on the left */
+  order: 1;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -125,6 +128,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 .signin-title {
@@ -217,27 +221,65 @@ body {
   background-color: var(--accent-color);
 }
 
-/* Responsive */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
   .signin-content {
     flex-direction: column;
-    border-radius: 0;
+    max-width: 90%;
+    min-height: auto;
   }
 
   .signin-left,
   .signin-form-section {
     width: 100%;
-    padding: 30px;
-    box-shadow: none;
+    padding: 30px 20px;
+    min-height: auto;
   }
 
   .signin-left {
-    padding-top: 60px;
-    padding-bottom: 60px;
+    order: 1;
+    padding: 40px 20px;
   }
 
   .signin-form-section {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    order: 2;
+    padding: 40px 20px;
+  }
+
+  .signin-heading {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  .signin-title {
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+
+  .signin-switch-btn,
+  .signin-submit-btn {
+    padding: 10px 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .signin-wrapper {
+    padding: 10px;
+  }
+
+  .signin-content {
+    max-width: 100%;
+    border-radius: 0;
+  }
+
+  .signin-input,
+  .signin-password-group,
+  .signin-remember-group {
+    max-width: 100%;
+  }
+
+  .signin-social-icons {
+    gap: 15px;
+    margin-bottom: 30px;
   }
 }
