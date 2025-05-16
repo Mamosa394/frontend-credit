@@ -3,8 +3,7 @@ import { Container, Form, Button, Row, Col, Spinner } from "react-bootstrap";
 import "../styles/creditform.css";
 import Header2 from "../components2/Header2";
 import FooterNew from "../components2/FooterNew";
-import LoanForm from "./LoanForm";
-import BillForm from "./BillForm";
+
 
 const CreditForm = ({ onSubmit }) => {
   const [loans, setLoans] = useState([

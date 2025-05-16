@@ -1,5 +1,6 @@
 import React from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
+import "../styles/creditform.css"
 
 const BillForm = ({ bills, handleBillChange, addBill }) => {
   return (
