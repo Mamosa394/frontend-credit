@@ -4,6 +4,7 @@ import Header2 from "../components/Header2";
 import FooterNew from "../components/FooterNew";
 import "../styles/creditform.css";
 
+
 const ALLOWED_LENDERS = ["FNB", "Postbank", "Nedbank", "Alliance Lesotho"];
 
 const CreditForm = () => {
