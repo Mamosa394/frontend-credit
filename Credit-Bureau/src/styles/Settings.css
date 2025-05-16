@@ -19,14 +19,18 @@
 body {
     font-family: "Segoe UI", sans-serif;
     transition: background-color 0.3s, color 0.3s;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
 }
 
 .settings-wrapper {
     display: flex;
-    height: 100vh;
+    min-height: 100vh;
+    width: 100%;
     background-color: var(--bg-color);
-    width: 100vw;
     transition: background-color 0.3s;
+    flex-direction: column;
 }
 
 .settings-wrapper.dark-mode {
@@ -34,12 +38,13 @@ body {
 }
 
 .settings-sidebar {
-    width: 220px;
+    width: 100%;
     background-color: var(--primary-color);
     color: var(--white-color);
-    padding: 30px 20px;
-    box-shadow: 2px 0 10px var(--shadow-color);
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px var(--shadow-color);
     transition: background-color 0.3s, color 0.3s;
+    order: -1;
 }
 
 .settings-sidebar.dark-mode {
@@ -48,25 +53,30 @@ body {
 }
 
 .settings-sidebar h3 {
-    font-size: 20px;
-    margin-bottom: 20px;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
 }
 
 .settings-sidebar ul {
     list-style: none;
     padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
 }
 
 .settings-sidebar li {
-    padding: 10px 0;
+    padding: 0.5rem 1rem;
     cursor: pointer;
-    transition: background-color 0.3s, padding-left 0.3s;
+    transition: background-color 0.3s;
+    border-radius: 4px;
+    flex: 1 1 auto;
 }
 
 .settings-sidebar li:hover,
 .settings-sidebar li.active {
     background-color: var(--hover-color);
-    padding-left: 15px;
 }
 
 .settings-sidebar.dark-mode li:hover,
@@ -74,24 +84,25 @@ body {
     background-color: var(--dark-hover-color);
 }
 
-
-/* Dark Mode Toggle Button */
-
 .mode-toggle {
     background: none;
     border: none;
     color: var(--white-color);
     font-weight: bold;
     cursor: pointer;
-    font-size: 15px;
+    font-size: 0.9rem;
     transition: color 0.3s;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    border-radius: 4px;
 }
 
 .settings-container {
     flex: 1;
-    padding: 40px;
+    padding: 1.5rem;
     overflow-y: auto;
     transition: background-color 0.3s, color 0.3s;
+    width: 100%;
 }
 
 .settings-container.dark-mode {
@@ -103,12 +114,15 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .settings-header h2 {
     color: var(--primary-color);
-    margin-top: -0.5rem;
-    margin-right: 3rem;
+    margin: 0;
+    font-size: 1.5rem;
 }
 
 .settings-header.dark-mode h2 {
@@ -121,9 +135,9 @@ body {
     color: var(--primary-color);
     font-weight: bold;
     cursor: pointer;
-    font-size: 23px;
-    margin-top: -0.5rem;
-    margin-left: 2.5rem;
+    font-size: 1.4rem;
+    padding: 0.5rem;
+    transition: color 0.3s;
 }
 
 .back-btn.dark-mode {
@@ -134,11 +148,9 @@ body {
     background-color: var(--white-color);
     border: 1.5px solid var(--accent-color);
     border-radius: 8px;
-    padding: 10px;
-    margin-top: -0.5rem;
-    max-height: 46.5rem;
-    max-width: 75rem;
-    margin-left: 2.5rem;
+    padding: 1rem;
+    margin: 0 auto;
+    max-width: 100%;
     transition: background-color 0.3s, border-color 0.3s;
 }
 
@@ -148,16 +160,16 @@ body {
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 .form-group label {
-    margin-bottom: 6px;
+    margin-bottom: 0.5rem;
     font-weight: 500;
     color: #333;
-    margin-left: 1.5rem;
 }
 
 .form-group.dark-mode label {
@@ -166,12 +178,12 @@ body {
 
 .form-group input,
 .form-group select {
-    padding: 10px;
-    max-width: 50rem;
+    padding: 0.75rem;
+    width: 100%;
+    max-width: 100%;
     background-color: var(--input-bg-color);
     border: 1px solid #ccc;
     border-radius: 5px;
-    margin-left: 1.5rem;
     transition: background-color 0.3s, border-color 0.3s;
 }
 
@@ -183,35 +195,45 @@ body {
 
 .form-row {
     display: flex;
-    gap: 20px;
+    gap: 1.25rem;
     flex-wrap: wrap;
+    width: 100%;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
 }
 
 .checkbox-group input {
-    margin-right: 8px;
+    margin-right: 0.5rem;
 }
 
 .error {
     color: red;
-    font-size: 13px;
-    margin-top: 5px;
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
 }
 
 .success-msg {
     color: green;
-    margin-top: 15px;
+    margin-top: 1rem;
+    font-size: 0.9rem;
 }
 
 .save-btn {
     background-color: var(--primary-color);
     color: var(--white-color);
-    padding: 12px 20px;
+    padding: 0.75rem 1.5rem;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s;
-    margin-bottom: 3rem;
-    margin-left: 2rem;
+    font-size: 1rem;
+    margin: 1rem 0;
+    width: 100%;
+    max-width: 200px;
 }
 
 .save-btn:hover {
@@ -227,12 +249,75 @@ body {
 }
 
 .settings-footer {
-    margin-top: 40px;
+    margin-top: 2.5rem;
     text-align: center;
-    font-size: 14px;
+    font-size: 0.875rem;
     color: #777;
+    padding: 1rem;
 }
 
 .settings-footer.dark-mode {
     color: var(--dark-text-color);
+}
+
+/* Responsive Adjustments */
+@media (min-width: 768px) {
+    .settings-wrapper {
+        flex-direction: row;
+    }
+    
+    .settings-sidebar {
+        width: 220px;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+        padding: 2rem 1.25rem;
+        order: 0;
+    }
+    
+    .settings-sidebar ul {
+        display: block;
+    }
+    
+    .settings-sidebar li {
+        padding: 0.75rem 0;
+        margin-bottom: 0.5rem;
+    }
+    
+    .settings-container {
+        padding: 2rem;
+    }
+    
+    .settings-header h2 {
+        font-size: 1.75rem;
+    }
+    
+    .settings-card {
+        padding: 1.5rem;
+        max-width: 75rem;
+    }
+    
+    .form-group input,
+    .form-group select {
+        max-width: 50rem;
+    }
+    
+    .save-btn {
+        width: auto;
+    }
+}
+
+@media (min-width: 1024px) {
+    .settings-sidebar {
+        width: 250px;
+        padding: 2rem 1.5rem;
+    }
+    
+    .settings-container {
+        padding: 2.5rem;
+    }
+    
+    .settings-header h2 {
+        font-size: 2rem;
+    }
 }
