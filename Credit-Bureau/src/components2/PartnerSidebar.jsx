@@ -75,7 +75,7 @@ const PartnerSidebar = () => {
               </Link>
             </li>
             <li>
-              <Link to="/partner-payments" className="partner-nav-link">
+              <Link to="/bills-payment" className="partner-nav-link">
                 Payments Received
               </Link>
             </li>
