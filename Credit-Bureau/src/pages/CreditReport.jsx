@@ -89,8 +89,8 @@ const CreditReport = () => {
               <p><strong>Until:</strong> 11/08/2023</p>
             </div>
             <div className="info-group">
-              <p><strong>Customer Number:</strong> 1536457</p>
-              <p><strong>Customer Name:</strong> Jane Doe</p>
+              <p><strong>Customer Number:</strong> 2365789</p>
+              <p><strong>Customer Name:</strong> Mamosa Motsie</p>
             </div>
             <div className="info-group">
               <p><strong>Phone:</strong> (+266) 5678 1234</p>
