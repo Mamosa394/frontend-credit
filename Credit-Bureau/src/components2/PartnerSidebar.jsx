@@ -79,16 +79,9 @@ const PartnerSidebar = () => {
                 Payments Received
               </Link>
             </li>
+           
             <li>
-              <Link
-                to="/partner-client-management"
-                className="partner-nav-link"
-              >
-                Client Management
-              </Link>
-            </li>
-            <li>
-              <Link to="/partner-settings" className="partner-nav-link">
+              <Link to="/settings" className="partner-nav-link">
                 Settings
               </Link>
             </li>
