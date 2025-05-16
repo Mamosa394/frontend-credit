@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Container, Form, Button, Row, Col, Spinner } from "react-bootstrap";
 
 import "../styles/creditform.css";
-import PartnerSidebar from "@/components2/PartnerSidebar";
+import PartnerSidebar from "../components2/PartnerSidebar";
 
 const BillForm = () => {
   const [bills, setBills] = useState([
