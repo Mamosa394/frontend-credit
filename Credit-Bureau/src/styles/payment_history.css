@@ -10,7 +10,7 @@
   --mobile-breakpoint: 768px;
 }
 
-/* === BASE STYLES === */
+/* === BASE === */
 body, html {
   margin: 0;
   padding: 0;
@@ -18,58 +18,49 @@ body, html {
   font-family: "Segoe UI", sans-serif;
   background-color: #f9f9fb;
   color: #333;
-  height: 100%;
-  width: 100%;
 }
 
-/* === LAYOUT === */
 .credit-reports-wrapper {
   display: flex;
-  min-height: 100vh;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   overflow: hidden;
-  flex-direction: column;
 }
 
 /* === LEFT PANEL === */
 .left-panel {
-  width: 100%;
+  width: 250px;
   background: var(--primary-color);
-  padding: 1rem;
-  border-bottom: 1px solid #ccc;
+  padding: 20px;
+  border-right: 1px solid #ccc;
+  flex-shrink: 0;
 }
 
 .left-panel h2 {
   font-size: 1.2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 20px;
   color: white;
 }
 
 .Balance-graph-text {
   color: var(--primary-color);
-  margin-top: 1rem;
-  font-size: 1.3rem;
+  margin-top: 10px;
+  font-size: 21px;
 }
 
 .lender-list {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
 }
 
 .lender-list li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem;
+  margin-bottom: 12px;
   color: white;
   font-size: 0.95rem;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-  flex: 1 1 200px;
 }
 
 .view-btn,
@@ -77,13 +68,12 @@ body, html {
   background-color: var(--accent-color);
   color: white;
   border: none;
-  padding: 0.4rem 0.8rem;
+  padding: 6px 12px;
   border-radius: 20px;
   cursor: pointer;
   font-weight: 600;
   font-size: 0.8rem;
   transition: background-color 0.3s;
-  white-space: nowrap;
 }
 
 .view-btn:hover,
@@ -98,7 +88,7 @@ body, html {
 /* === MAIN PANEL === */
 .report-main {
   flex: 1;
-  padding: 1.5rem;
+  padding: 30px;
   overflow-y: auto;
   background: #f9f9fb;
 }
@@ -109,52 +99,46 @@ body, html {
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-bottom: 1.5rem;
 }
 
 .edit-btn {
   background-color: transparent;
   border: 1px solid #007eb1;
-  padding: 0.4rem 0.8rem;
+  padding: 5px 10px;
   border-radius: 4px;
   font-weight: 600;
   color: #007eb1;
   cursor: pointer;
   font-size: 0.9rem;
-  white-space: nowrap;
 }
 
 /* === AGENCY CARDS === */
 .agency-info {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1.25rem;
-  margin: 1.25rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 20px 0;
 }
 
 .agency-card {
   background-color: var(--white-color);
   border: 1px solid var(--primary-color);
-  padding: 1rem;
+  padding: 15px;
   border-radius: 6px;
+  width: 180px;
   box-shadow: 3px 5px 10px var(--shadow-color);
-  transition: transform 0.2s;
-}
-
-.agency-card:hover {
-  transform: translateY(-2px);
+  flex-shrink: 0;
 }
 
 .details-btn {
   background-color: #e0e0e0;
-  padding: 0.4rem 0.8rem;
-  margin-top: 0.8rem;
+  padding: 5px 10px;
+  margin-top: 10px;
   border: none;
   border-radius: 3px;
   font-size: 0.85rem;
   cursor: pointer;
   transition: background-color 0.3s;
-  width: 100%;
 }
 
 .details-btn:hover {
@@ -162,31 +146,18 @@ body, html {
 }
 
 /* === STATUS TABLE === */
-.status-months {
-  overflow-x: auto;
-  margin: 1.5rem 0;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
 .status-months table {
   width: 100%;
+  margin-top: 20px;
   border-collapse: collapse;
-  min-width: 600px;
 }
 
 .status-months th,
 .status-months td {
   text-align: center;
-  padding: 0.8rem;
+  padding: 8px;
   border-bottom: 1px solid #ddd;
   font-size: 0.9rem;
-}
-
-.status-months th {
-  background-color: #f5f5f5;
-  font-weight: 600;
 }
 
 .status-ok {
@@ -196,116 +167,87 @@ body, html {
 
 /* === GRAPH === */
 .balance-graph {
-  margin-top: 2rem;
-  background: white;
-  border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin-top: 100px;
 }
 
 .bar-graph {
   display: flex;
-  gap: 1rem;
+  gap: 12px;
   align-items: flex-end;
-  height: 200px;
-  padding-bottom: 1rem;
+  height: 150px;
   overflow-x: auto;
+  padding-bottom: 1rem;
 }
 
 .bar-month {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 4px;
   align-items: center;
-  min-width: 2.5rem;
-  flex: 1;
-}
-
-.bar-month-label {
-  font-size: 0.8rem;
-  color: #666;
+  min-width: 40px;
 }
 
 .bar {
-  width: 100%;
+  width: 12px;
   border-radius: 3px;
-  transition: height 0.3s ease;
 }
 
 .eq {
+  height: 60px;
   background-color: #c1272d;
-  height: 40%;
 }
 
 .ex {
+  height: 80px;
   background-color: #007eb1;
-  height: 60%;
 }
 
 .tu {
+  height: 100px;
   background-color: #29abe2;
-  height: 80%;
 }
 
-/* === MEDIA QUERIES === */
-@media (min-width: 768px) {
+/* === RESPONSIVE === */
+@media (max-width: 1024px) {
+  .agency-card {
+    width: 45%;
+  }
+}
+
+@media (max-width: 768px) {
   .credit-reports-wrapper {
-    flex-direction: row;
+    flex-direction: column;
   }
 
   .left-panel {
-    width: 250px;
-    min-height: 100vh;
-    border-right: 1px solid #ccc;
-    border-bottom: none;
-  }
-
-  .lender-list {
-    display: block;
-  }
-
-  .lender-list li {
+    width: 100%;
     display: flex;
-    margin-bottom: 0.75rem;
-    background-color: transparent;
-  }
-
-  .bar-graph {
-    height: 250px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .left-panel {
-    width: 280px;
-    padding: 1.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+    border-right: none;
+    border-bottom: 1px solid #ccc;
   }
 
   .report-main {
-    padding: 2rem;
+    padding: 20px;
   }
 
   .agency-info {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    flex-direction: column;
   }
 
-  .bar-graph {
-    height: 300px;
+  .agency-card {
+    width: 100%;
   }
-}
 
-/* === UTILITY CLASSES === */
-@media (max-width: 480px) {
   .report-header {
     flex-direction: column;
     align-items: flex-start;
   }
 
-  .agency-info {
-    grid-template-columns: 1fr;
-  }
-
   .bar-graph {
-    height: 180px;
+    height: auto;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 }
