@@ -46,9 +46,9 @@ const PartnerDashboard = () => {
 
   // Example data for partner dashboard
   const loanOffers = [
-    { loanAmount: "500,000", borrowerName: "John Doe", status: "Active" },
-    { loanAmount: "250,000", borrowerName: "Jane Smith", status: "Completed" },
-    { loanAmount: "100,000", borrowerName: "Michael Brown", status: "Pending" },
+    { loanAmount: "500,000", borrowerName: "Keletso Hato", status: "Active" },
+    { loanAmount: "250,000", borrowerName: "Mamosa Motsie", status: "Completed" },
+    { loanAmount: "100,000", borrowerName: "Thando Chelane", status: "Pending" },
   ];
 
   const partnerStats = [
@@ -58,9 +58,9 @@ const PartnerDashboard = () => {
   ];
 
   const recentActivity = [
-    "Loan offer for John Doe processed",
-    "Loan offer for Jane Smith completed",
-    "Loan offer for Michael Brown pending",
+    "Loan offer for Keletso Hato processed",
+    "Loan offer for Mamosa Motsie completed",
+    "Loan offer for Thando Chelane pending",
   ];
 
   return (
