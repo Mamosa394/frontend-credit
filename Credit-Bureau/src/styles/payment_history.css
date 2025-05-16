@@ -251,3 +251,205 @@ body, html {
     justify-content: space-between;
   }
 }
+
+/* payment_history.css */
+
+/* Base Styles */
+.credit-reports-wrapper {
+  font-family: Arial, sans-serif;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.report-main {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.report-header h2 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+/* Agency Cards */
+.agency-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.agency-card {
+  background: white;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.agency-card p {
+  margin: 8px 0;
+  font-size: 0.9rem;
+}
+
+.details-btn {
+  background-color: #0e594a;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  margin-top: 10px;
+}
+
+.details-btn:hover {
+  background-color: #08402f;
+}
+
+/* Status Months Table */
+.status-months {
+  overflow-x: auto;
+  margin-bottom: 30px;
+  background: white;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.status-months table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.status-months th, 
+.status-months td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.status-months th {
+  font-weight: bold;
+  color: #333;
+}
+
+.status-ok {
+  color: #4CAF50;
+  font-weight: bold;
+}
+
+.Balance-graph-text {
+  margin: 20px 0 10px;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+/* Bar Graph */
+.balance-graph {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  overflow-x: auto;
+}
+
+.bar-graph {
+  display: flex;
+  height: 200px;
+  align-items: flex-end;
+  gap: 8px;
+  min-width: 600px; /* Minimum width for graph */
+}
+
+.bar-month {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex: 1;
+  gap: 2px;
+}
+
+.bar {
+  width: 100%;
+  border-radius: 3px 3px 0 0;
+  transition: height 0.3s ease;
+}
+
+.bar.eq {
+  background-color: #4CAF50; /* Green for Loans */
+  height: 70%;
+}
+
+.bar.ex {
+  background-color: #2196F3; /* Blue for Payments */
+  height: 50%;
+}
+
+.bar.tu {
+  background-color: #FFC107; /* Yellow for Settled */
+  height: 30%;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .report-main {
+    padding: 15px;
+  }
+
+  .agency-info {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .status-months {
+    padding: 10px;
+  }
+
+  .status-months th, 
+  .status-months td {
+    padding: 8px 5px;
+    font-size: 0.8rem;
+  }
+
+  .bar-graph {
+    height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .report-header h2 {
+    font-size: 1.3rem;
+  }
+
+  .agency-info {
+    grid-template-columns: 1fr;
+  }
+
+  .Balance-graph-text {
+    font-size: 1rem;
+  }
+
+  .bar-graph {
+    height: 120px;
+    gap: 5px;
+  }
+
+  .bar {
+    border-radius: 2px 2px 0 0;
+  }
+}
+
+/* For very small screens */
+@media (max-width: 360px) {
+  .status-months th, 
+  .status-months td {
+    padding: 5px 3px;
+    font-size: 0.7rem;
+  }
+
+  .bar-graph {
+    height: 100px;
+  }
+}
