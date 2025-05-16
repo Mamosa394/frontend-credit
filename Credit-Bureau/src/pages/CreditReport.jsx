@@ -20,7 +20,7 @@ const CreditReport = () => {
     // Customer info
     doc.setFontSize(12);
     doc.setTextColor(0, 0, 0); // Black
-    doc.text("Customer: Jane Doe (ID: 1536457)", 20, 30);
+    doc.text("Customer: Mamosa Mostie (ID: 2365789)", 20, 30);
     doc.text("Period: 10/10/2023 to 11/08/2023", 20, 40);
 
     // Add credit summary content to PDF
@@ -210,11 +210,11 @@ const CreditReport = () => {
             </div>
             <div className="detail-item">
               <span className="detail-label">Oldest Account:</span>
-              <span className="detail-value">CAPITAL BANK LS (14/12/2012)</span>
+              <span className="detail-value">First National Bank LS (14/12/2012)</span>
             </div>
             <div className="detail-item">
               <span className="detail-label">Newest Account:</span>
-              <span className="detail-value">BELLS FARGO LS (08/05/2019)</span>
+              <span className="detail-value">NedBank LS (08/05/2019)</span>
             </div>
           </div>
         </section>
@@ -227,11 +227,11 @@ const CreditReport = () => {
           </p>
           <div className="inquiry-list">
             <div className="inquiry-item">
-              <span className="inquiry-company">ABC Mortgage Services</span>
+              <span className="inquiry-company">Bokanang Mortgage Services</span>
               <span className="inquiry-date">24/01/2022</span>
             </div>
             <div className="inquiry-item">
-              <span className="inquiry-company">Blue Hill Lending Co.</span>
+              <span className="inquiry-company">Selibeng Lending Co.</span>
               <span className="inquiry-date">21/05/2023</span>
             </div>
           </div>
