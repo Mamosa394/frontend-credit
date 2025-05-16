@@ -65,12 +65,12 @@ const PartnerSidebar = () => {
               </Link>
             </li>
             <li>
-              <Link to="/loans-offered" className="partner-nav-link">
+              <Link to="/credit-dashboard" className="partner-nav-link">
                 Loans Offered
               </Link>
             </li>
             <li>
-              <Link to="/partner-loan-requests" className="partner-nav-link">
+              <Link to="/credit-form" className="partner-nav-link">
                 Loan Requests
               </Link>
             </li>
